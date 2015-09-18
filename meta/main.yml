@@ -1,0 +1,11 @@
+---
+dependencies: []
+galaxy_info:
+  author: "Chris Olstrom"
+  description: "Performance tweaks for Ansible-managed hosts."
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+      - precise
+      - trusty

@@ -1,0 +1,27 @@
+- lineinfile:
+    state: present
+    dest: /etc/ssh/sshd_config
+    regexp: '^#* *UseDNS '
+    line: 'UseDNS no'
+  notify: service | ssh | reload
+
+- lineinfile:
+    state: present
+    dest: /etc/sudoers.d/disable-fqdn
+    regexp: '^Default.*fqdn'
+    line: 'Defaults !fqdn'
+    create: yes
+
+- lineinfile:
+    state: present
+    dest: /etc/sudoers.d/fix-ssh-agent
+    regexp: '^Defaults env_keep\+\=SSH_AUTH_SOCK'
+    line: 'Defaults env_keep+=SSH_AUTH_SOCK'
+    create: yes
+
+- lineinfile:
+    state: present
+    dest: /etc/hosts
+    regexp: "^{{ ansible_hostname }}$"
+    line: "127.0.0.1 {{ ansible_hostname }}"
+    create: yes

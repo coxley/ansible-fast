@@ -6,5 +6,5 @@
 
 - name: service | ssh | restart
   service:
-    state: restart
+    state: restarted
     name: ssh

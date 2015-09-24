@@ -22,6 +22,6 @@
 - lineinfile:
     state: present
     dest: /etc/hosts
-    regexp: "^{{ ansible_hostname }}$"
+    regexp: "^127.0.0.1 {{ ansible_hostname }}$"
     line: "127.0.0.1 {{ ansible_hostname }}"
     create: yes

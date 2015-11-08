@@ -2,9 +2,9 @@
 - name: service | ssh | reload
   service:
     state: reloaded
-    name: ssh
+    name: '{{ service_ssh_name }}'
 
 - name: service | ssh | restart
   service:
     state: restarted
-    name: ssh
+    name: '{{ service_ssh_name }}'

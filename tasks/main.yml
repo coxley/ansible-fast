@@ -14,13 +14,6 @@
 
 - lineinfile:
     state: present
-    dest: /etc/sudoers.d/fix-ssh-agent
-    regexp: '^Defaults env_keep\+\=SSH_AUTH_SOCK'
-    line: 'Defaults env_keep+=SSH_AUTH_SOCK'
-    create: yes
-
-- lineinfile:
-    state: present
     dest: /etc/hosts
     regexp: "^127.0.0.1 {{ ansible_hostname }}$"
     line: "127.0.0.1 {{ ansible_hostname }}"
